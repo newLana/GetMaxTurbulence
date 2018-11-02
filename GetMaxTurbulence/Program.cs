@@ -41,19 +41,12 @@ namespace MaxTurbulence
                     }
                 }
                 else
-                {
-                    if (sign.LastOrDefault() == '=')
-                    {
-                        sign.Add('!');
-                    }
-                    else if(sign.LastOrDefault(c => c != '!') != '=')
-                    {
-                        sign.Add('=');
-                    }
+                {                   
+                    sign.Add('!');                   
                 }
             }
 
-            return string.Join("", sign).Split(new char[] { '!', '=' }, StringSplitOptions.RemoveEmptyEntries)
+            return string.Join("", sign).Split(new char[] { '!' }, StringSplitOptions.RemoveEmptyEntries)
                 .Where(s => s.Length > 1).Max(s => s.Length + 1); 
         }
     }
